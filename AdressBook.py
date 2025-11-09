@@ -74,19 +74,4 @@ class AddressBook(UserDict): #add record, delete record, search record
             result += str(record) + "\n"
         return result.strip()
 
-# Створення нової адресної книги
-book = AddressBook()
-john_record = Record("John")
-john_record.add_phone("1234567890")
-john_record.add_phone("5555555555")
-book.add_record(john_record)
-jane_record = Record("Jane")
-jane_record.add_phone("9876543210")
-book.add_record(jane_record)
-print(book)
-john = book.find("John")
-john.edit_phone("1234567890", "1112223333")
-print(john)  # Виведення: Contact name: John, phones: 1112223333; 5555555555
-found_phone = john.find_phone("5555555555")
-print(f"{john.name}: {found_phone}")  # Виведення: John: 5555555555
-book.delete("Jane")
+
