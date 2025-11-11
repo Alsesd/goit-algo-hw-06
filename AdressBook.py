@@ -37,13 +37,13 @@ class Record: #add phone, delete phone, change phone, search phone
         self.phones.remove(self.find_phone(phone))
 
     def edit_phone(self, old_phone, new_phone):
-            self.find_phone(old_phone).value = new_phone
+            self.find_phone(old_phone).value = Phone(new_phone)
     
     def find_phone(self, phone):
         for p in self.phones:
             if p.value == phone:
                 return p
-        return None
+        raise ValueError('No number found')
 
     def __str__(self):
         return f"Contact name: {self.name.value}, phones: {'; '.join(p.value for p in self.phones)}"
@@ -67,3 +67,10 @@ class AddressBook(UserDict): #add record, delete record, search record
         for record in self.data.values():
             result += str(record) + "\n"
         return result.strip()
+
+if __name__ == '__main__':
+    book = AddressBook()
+    john = Record('John')
+    john.add_phone('1234567890')
+    john.edit_phone('1234567asd', '0987654321')
+
