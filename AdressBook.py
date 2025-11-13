@@ -1,5 +1,4 @@
 from collections import UserDict
-from numbers import Number
 
 class Field:
     def __init__(self, value, required=True):
