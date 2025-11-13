@@ -1,4 +1,5 @@
 from collections import UserDict
+from numbers import Number
 
 class Field:
     def __init__(self, value, required=True):
@@ -37,6 +38,8 @@ class Record: #add phone, delete phone, change phone, search phone
         self.phones.remove(self.find_phone(phone))
 
     def edit_phone(self, old_phone, new_phone):
+            if self.find_phone(old_phone) == None:
+                raise ValueError('Number not found') 
             self.find_phone(old_phone).value = Phone(new_phone)
     
     def find_phone(self, phone):
